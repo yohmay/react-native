@@ -1,47 +1,72 @@
-import { Text, View, TextInput, TouchableOpacity } from "react-native";
-
+import {
+  Text,
+  View,
+  TextInput,
+  TouchableOpacity,
+  FlatList,
+  Alert,
+} from "react-native";
+import { AddParticipants } from "../../components/AddParticipants";
 import { styles } from "./styles";
-import { Participant } from "../../components/Participant";
 
-export default function Home() {
-  const participants = ["Ana", "Maria", "Vitoria", "Geovana"];
+export function Home() {
+  const participants = ["Ana", "Maria", "Lucia", "Renata"];
 
   function handleParticipantAdd() {
-    console.log("Adicionando...");
+    if (participants.includes) {
+      return Alert.alert(
+        "Participante existente",
+        "Não é possível adicionar um participante com o mesmo nome!"
+      );
+    }
   }
 
   function handleParticipantRemove(name: string) {
-    console.log(`Removendo Participante ${name}`);
+    Alert.alert("Remover", `Tem certeza que deseja remover ${name}`, [
+      {
+        text: "Sim",
+        onPress: () => Alert.alert("Removido!"),
+      },
+      {
+        text: "Não",
+        style: "cancel",
+      },
+    ]);
   }
 
   return (
     <View style={styles.container}>
       <Text style={styles.eventName}>Evento</Text>
-
-      <Text style={styles.eventDate}>Quinta, 29 de Junho de 2023</Text>
-
+      <Text style={styles.eventDate}>Domingo, 31 de Dezembro de 2023</Text>
       <View style={styles.form}>
         <TextInput
           style={styles.input}
           placeholder="Nome do participante"
           placeholderTextColor="#867070"
         />
-
-        <TouchableOpacity style={styles.button}>
+        <TouchableOpacity style={styles.button} onPress={handleParticipantAdd}>
           <Text style={styles.buttonText}>+</Text>
         </TouchableOpacity>
       </View>
 
-      {
-      participants.map((participants) => (
-        <Participant 
-          key={participants}
-          name={participants} 
-          onRemove={() => handleParticipantRemove} />
-      ))
-      }
-
-      <Participant name="Ana" onRemove={() => handleParticipantRemove} />
+      <FlatList
+        data={participants}
+        keyExtractor={(item) => item}
+        renderItem={({ item }) => (
+          <AddParticipants
+            key={item}
+            name={item}
+            onRemove={() => handleParticipantRemove(item)}
+          />
+        )}
+        showsVerticalScrollIndicator={false}
+        ListEmptyComponent={() => (
+          <Text style={styles.listEmptyText}>
+            Ainda faltam pessoas para o evento? Adicione inserindo no campo
+            acima.
+          </Text>
+        )}
+      />
     </View>
   );
 }
