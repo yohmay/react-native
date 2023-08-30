@@ -1,3 +1,4 @@
+import React, { useState } from "react";
 import {
   Text,
   View,
@@ -10,15 +11,16 @@ import { AddParticipants } from "../../components/AddParticipants";
 import { styles } from "./styles";
 
 export function Home() {
-  const participants = ["Ana", "Maria", "Lucia", "Renata"];
+  const [participants, setParticipants] = useState(["Ana"]);
 
   function handleParticipantAdd() {
-    if (participants.includes) {
+    if (participants.includes('')) {
       return Alert.alert(
         "Participante existente",
         "Não é possível adicionar um participante com o mesmo nome!"
       );
     }
+    setParticipants((prevState) => [...prevState, "Maria"]);
   }
 
   function handleParticipantRemove(name: string) {
