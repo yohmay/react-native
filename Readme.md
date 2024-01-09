@@ -1,11 +1,13 @@
-# Event creation APP
-
-## Overview
-
+# Event Creation App
 **Event Creation App** is a hands-on exercise focused on the fundamentals of mobile app development. Using React Native to create interfaces, Expo to simplify development and provide additional features, and TypeScript to add static typing to the code.
 
-## Requirements
+## Overview
+<div>
+        <img src="https://github.com/yohmay/react-native/blob/main/assets/video/video-readme.gif" alt="Overview Project" width="260">
+</div>
 
+## How to Use
+### Prerequisites
 Make sure you have the following tools installed before proceeding:
 
 - Node.js
@@ -33,19 +35,23 @@ Make sure you have the following tools installed before proceeding:
 
    ```bash
    npm install
+   ```
    or
+   ```
    yarn install
    ```
 
-4. Run the app:
+5. Run the app:
    ```bash
-   expo start
+   npx expo start
    ```
 
 This will start the Expo Metro Bundler server. Open the app on the emulator or scan the QR code with Expo Go
 
 ## Functionalities
-
 - Addition of participant names.
 - Exclusion of participants.
 - Alert for duplicate names.
+
+### Contributing
+If you find any bugs or have suggestions for improvements, please open an issue or create a pull request.
