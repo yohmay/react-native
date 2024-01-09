@@ -46,6 +46,6 @@ This will start the Expo Metro Bundler server. Open the app on the emulator or s
 
 ## Functionalities
 
-Addition of participant names.
-Exclusion of participants.
-Alert for duplicate names.
+- Addition of participant names.
+- Exclusion of participants.
+- Alert for duplicate names.
