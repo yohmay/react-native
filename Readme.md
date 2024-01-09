@@ -1,4 +1,4 @@
-# Event creation app
+# Event creation APP
 
 ## Overview
 
